@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Dev</title>
+  <title>Dev - Theme Park Status</title>
   <link rel="icon" type="image/png" href="./favicon.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -14,47 +14,83 @@
       color: #333;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
+      min-height: 100vh;
     }
-
     header {
       width: 100%;
       padding: 2rem 0 1rem;
       display: flex;
       justify-content: center;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-
     header img {
       width: 75%;
       max-width: 600px;
     }
-
     main {
       flex: 1;
+      padding: 2rem;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
     }
-
     h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
     }
-
-    p {
-      font-size: 1.2rem;
-      color: #666;
+    .cards {
+      width: 100%;
+      max-width: 1200px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
     }
-
+    .card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.5rem;
+    }
+    .card .meta {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+    .status {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .status.open { color: #2e7d32; }
+    .status.closed { color: #c62828; }
+    .crowd.low { color: #2e7d32; }
+    .crowd.medium { color: #f9a825; }
+    .crowd.high { color: #c62828; }
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      background-color: #1976d2;
+      color: #fff;
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
     footer {
-      position: absolute;
-      bottom: 1rem;
+      padding: 1rem 0;
       font-size: 0.9rem;
       color: #aaa;
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 -1px 4px rgba(0,0,0,0.05);
     }
   </style>
 </head>
@@ -63,10 +99,34 @@
     <img src="./logo-2.png" alt="secondary logo" />
   </header>
   <main>
-    <h1>Work in Progress</h1>
-    <p>under development</p>
+    <h1>Nearby Theme Parks</h1>
+    <div class="cards">
+      <div class="card">
+        <h2>Placeholder1</h2>
+        <div class="meta">Bandung Timur</div>
+        <div class="status open">Open Now</div>
+        <div class="crowd low">Crowd: Low</div>
+        <div class="meta">Pricing: 10-50k idr<br>Wait: 10-20 mins</div>
+        <a href="#" class="btn">Details</a>
+      </div>
+      <div class="card">
+        <h2>Placeholder2</h2>
+        <div class="meta">Bandung Barat</div>
+        <div class="status open">Open Now</div>
+        <div class="crowd medium">Crowd: Medium</div>
+        <div class="meta">Pricing: 100-200k idr<br>Wait: 30-45 mins</div>
+        <a href="#" class="btn">Details</a>
+      </div>
+      <div class="card">
+        <h2>Placeholder3</h2>
+        <div class="meta">Bandung Tengah</div>
+        <div class="status closed">Closed</div>
+        <div class="crowd high">Crowd: High</div>
+        <div class="meta">Pricing: 500-1000k idr<br>Wait: N/A</div>
+        <a href="#" class="btn">Details</a>
+      </div>
+    </div>
   </main>
   <footer>&copy; 2025 Umbaraloka</footer>
 </body>
 </html>
-
