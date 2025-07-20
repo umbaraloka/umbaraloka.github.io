@@ -50,10 +50,21 @@
       background-color: #fff;
       border-radius: 12px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .card img.preview {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .card-content {
       padding: 1.5rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      flex: 1;
     }
     .card h2 {
       margin: 0 0 0.5rem;
@@ -102,30 +113,50 @@
     <h1>Nearby Theme Parks</h1>
     <div class="cards">
       <div class="card">
-        <h2>Placeholder1</h2>
-        <div class="meta">Bandung Timur</div>
-        <div class="status open">Open Now</div>
-        <div class="crowd low">Crowd: Low</div>
-        <div class="meta">Pricing: 10-50k idr<br>Wait: 10-20 mins</div>
-        <a href="#" class="btn">Details</a>
+        <img src="./img/x1.webp" alt="picture1" class="preview">
+        <div class="card-content">
+          <h2>Placeholder1</h2>
+          <div class="meta">Bandung Timur</div>
+          <div class="status open">Open Now</div>
+          <div class="crowd low">Crowd: Low</div>
+          <div class="meta">Pricing: 10-50k idr<br>Wait: 10-20 mins</div>
+          <a href="#" class="btn">Details</a>
+        </div>
       </div>
       <div class="card">
-        <h2>Placeholder2</h2>
-        <div class="meta">Bandung Barat</div>
-        <div class="status open">Open Now</div>
-        <div class="crowd medium">Crowd: Medium</div>
-        <div class="meta">Pricing: 100-200k idr<br>Wait: 30-45 mins</div>
-        <a href="#" class="btn">Details</a>
+        <img src="./img/x2.webp" alt="picture2" class="preview">
+        <div class="card-content">
+          <h2>Placeholder2</h2>
+          <div class="meta">Bandung Barat</div>
+          <div class="status open">Open Now</div>
+          <div class="crowd medium">Crowd: Medium</div>
+          <div class="meta">Pricing: 100-200k idr<br>Wait: 30-45 mins</div>
+          <a href="#" class="btn">Details</a>
+        </div>
       </div>
       <div class="card">
-        <h2>Placeholder3</h2>
-        <div class="meta">Bandung Tengah</div>
-        <div class="status closed">Closed</div>
-        <div class="crowd high">Crowd: High</div>
-        <div class="meta">Pricing: 500-1000k idr<br>Wait: N/A</div>
-        <a href="#" class="btn">Details</a>
+        <img src="./img/x3.webp" alt="picture3" class="preview">
+        <div class="card-content">
+          <h2>Placeholder3</h2>
+          <div class="meta">Bandung Tengah</div>
+          <div class="status closed">Closed</div>
+          <div class="crowd high">Crowd: High</div>
+          <div class="meta">Pricing: 500-1000k idr<br>Wait: N/A</div>
+          <a href="#" class="btn">Details</a>
+        </div>
       </div>
-    </div>
+      <div class="card">
+        <img src="./img/x4.webp" alt="picture4" class="preview">
+        <div class="card-content">
+          <h2>Placeholder4</h2>
+          <div class="meta">Bandung Utarta</div>
+          <div class="status open">Open now</div>
+          <div class="crowd low">Crowd: Low</div>
+          <div class="meta">Pricing: 5000-10000k idr<br>Wait: 5-10 mins</div>
+          <a href="#" class="btn">Details</a>
+        </div>
+      </div>
+    </div> <!-- close cards div --!>
   </main>
   <footer>&copy; 2025 Umbaraloka</footer>
 </body>
