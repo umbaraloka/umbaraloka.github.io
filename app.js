@@ -3,6 +3,9 @@ import { fileURLToPath } from 'url';
 import express from 'express';
 import { pool } from './db.js';
 
+const app = express();
+app.use(express.json());
+
 // Needed for __dirname in ESM
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -14,9 +17,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
-
-const app = express();
-app.use(express.json());
 
 // 1. GET /destinations
 //    Returns id, name, type, lat, lon, and latest crowd_score
