@@ -26,6 +26,7 @@ app.get('/destinations', async (req, res) => {
       SELECT 
         d.id, 
         d.name, 
+        d.location,
         d.type, 
         d.latitude, 
         d.longitude,
@@ -69,7 +70,9 @@ app.get('/destinations/:id/metrics', async (req, res) => {
     // Then fetch time‑series
     const [rows] = await pool.query(`
       SELECT 
+        dt.id,
         dt.name,
+        dt.location,
         cm.ts, 
         cm.raw_count,
         ROUND(cm.raw_count / ? * 10, 2) AS busyness_score
