@@ -1,5 +1,19 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
 import express from 'express';
 import { pool } from './db.js';
+
+// Needed for __dirname in ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Serve static files from a "public" folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Serve index.html for "/" explicitly
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 const app = express();
 app.use(express.json());
@@ -55,13 +69,15 @@ app.get('/destinations/:id/metrics', async (req, res) => {
     // Then fetch time‑series
     const [rows] = await pool.query(`
       SELECT 
-        ts, 
-        raw_count,
-        ROUND(raw_count / ? * 10, 2) AS busyness_score
-      FROM crowd_metrics
-      WHERE destination_id = ?
-        AND ts >= NOW() - INTERVAL ? HOUR
-      ORDER BY ts ASC;
+        dt.name,
+        cm.ts, 
+        cm.raw_count,
+        ROUND(cm.raw_count / ? * 10, 2) AS busyness_score
+      FROM crowd_metrics cm
+      JOIN destinations dt ON dt.id = cm.destination_id
+      WHERE cm.destination_id = ?
+        AND cm.ts >= NOW() - INTERVAL ? HOUR
+      ORDER BY cm.ts ASC;
     `, [max_people, id, hours]);
 
     res.json(rows);
