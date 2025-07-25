@@ -112,24 +112,29 @@
   </main>
   <footer>&copy; 2025 Umbaraloka</footer>
 
-  <script>
-    const container = document.querySelector('.cards');
+<script>
+  const container = document.querySelector('.cards');
 
-    function getCrowdClass(score) {
-      const s = parseFloat(score);
-      if (s < 3) return 'low';
-      if (s < 7) return 'medium';
-      return 'high';
-    }
+  function getCrowdClass(score) {
+    const s = parseFloat(score);
+    if (s < 3) return 'low';
+    if (s < 7) return 'medium';
+    return 'high';
+  }
 
-  function createCard(item) {
+  function createCard(item, pricingMap) {
+    const price = pricingMap.get(item.id);
+    const priceText = price
+      ? `Rp${price.price_min.toLocaleString()} - Rp${price.price_max.toLocaleString()}`
+      : 'N/A';
+
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = `
       <img src="/img/${item.id}.webp" alt="${item.name}" class="preview">
       <div class="card-content">
         <h2>${item.name}</h2>
-        <div class="meta">Type: ${item.type}</div>
+        <div class="meta">Price: ${priceText}</div>
         <div class="meta">Location: ${item.location}</div>
         <div class="meta">Count: ${item.raw_count} / ${item.max_people}</div>
         <div class="crowd ${getCrowdClass(item.busyness_score)}">Busyness: ${item.busyness_score}</div>
@@ -139,18 +144,37 @@
     container.appendChild(card);
   }
 
-  fetch('/destinations')
-    .then(response => {
-      if (!response.ok) throw new Error("Network response was not ok");
-      return response.json();
-    })
-    .then(data => {
-      data.forEach(createCard);
-    })
-    .catch(error => {
-      container.innerHTML = `<p>Error loading destinations: ${error.message}</p>`;
-      console.error('Error fetching destinations:', error);
-    });
+  async function loadData() {
+    try {
+      // Fetch destinations and pricing in parallel
+      const [destRes, priceRes] = await Promise.all([
+        fetch('/destinations'),
+        fetch('/pricing')
+      ]);
+
+      if (!destRes.ok || !priceRes.ok) {
+        throw new Error("Failed to fetch data");
+      }
+
+      const destinations = await destRes.json();
+      const pricing = await priceRes.json();
+
+      // Create a map of id -> pricing
+      const pricingMap = new Map();
+      pricing.forEach(p => {
+        pricingMap.set(p.id, p);
+      });
+
+      destinations.forEach(dest => {
+        createCard(dest, pricingMap);
+      });
+    } catch (error) {
+      container.innerHTML = `<p>Error loading data: ${error.message}</p>`;
+      console.error('Error:', error);
+    }
+  }
+
+  loadData();
 </script>
 </body>
 </html>
