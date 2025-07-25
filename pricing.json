@@ -1,44 +1,44 @@
 [
   {
     "id": 1,
-    "price_min": 90000,
-    "price_max": 250000,
+    "price_min": 50000,
+    "price_max": 320000,
     "link": "https://www.traveloka.com/en-id/activities/indonesia/product/dufan-ancol-tickets-2001186750067"
   },
   {
     "id": 2,
-    "price_min": 70000,
-    "price_max": 200000,
+    "price_min": 75000,
+    "price_max": 140000,
     "link": "https://www.tiket.com/to-do/activity-atlantis-water-adventure-ancol"
   },
   {
     "id": 3,
-    "price_min": 67000,
-    "price_max": 183000,
+    "price_min": 100000,
+    "price_max": 185000,
     "link": "https://www.tiket.com/to-do/activity-samudra-ancol"
   },
   {
     "id": 4,
-    "price_min": 82000,
-    "price_max": 223000,
+    "price_min": 10000,
+    "price_max": 25000,
     "link": "https://www.trip.com/travel-guide/attraction/east-jakarta/taman-mini-indonesia-indah-23027774"
   },
   {
     "id": 5,
-    "price_min": 74000,
-    "price_max": 190000,
+    "price_min": 100000,
+    "price_max": 200000,
     "link": "https://www.transentertainment.com/transstudio/cibubur"
   },
   {
     "id": 6,
-    "price_min": 61000,
-    "price_max": 207000,
+    "price_min": 45000,
+    "price_max": 85000,
     "link": "https://www.tiket.com/to-do/attraction-jogjabay-waterpark"
   },
   {
     "id": 7,
-    "price_min": 98000,
-    "price_max": 232000,
+    "price_min": 35000,
+    "price_max": 100000,
     "link": "https://mekarsari.com/"
   },
   {
@@ -49,27 +49,27 @@
   },
   {
     "id": 9,
-    "price_min": 77000,
-    "price_max": 191000,
-    "link": ""
+    "price_min": 65000,
+    "price_max": 190000,
+    "link": "https://www.traveloka.com/id-id/activities/indonesia/product/tiket-taman-wisata-matahari-2000341206582"
   },
   {
     "id": 10,
-    "price_min": 89000,
-    "price_max": 214000,
-    "link": ""
+    "price_min": 150000,
+    "price_max": 200000,
+    "link": "https://www.traveloka.com/id-id/activities/indonesia/product/jungleland-adventure-theme-park-sentul-tickets-2000302533874"
   },
   {
     "id": 11,
-    "price_min": 65000,
-    "price_max": 172000,
-    "link": ""
+    "price_min": 25000,
+    "price_max": 40000,
+    "link": "https://www.traveloka.com/id-id/activities/indonesia/product/dago-dreampark-bandung-ticket-2000359186457"
   },
   {
     "id": 12,
-    "price_min": 70000,
-    "price_max": 198000,
-    "link": ""
+    "price_min": 30000,
+    "price_max": 40000,
+    "link": "https://www.traveloka.com/id-id/explore/destination/wisata-menarik-di-kabupaten-subang-dengan-keindahan-alamnya-flora-wisata-dcastello-trp/484170"
   },
   {
     "id": 13,
