@@ -2,161 +2,193 @@
   {
     "id": 1,
     "price_min": 90000,
-    "price_max": 250000
+    "price_max": 250000,
+    "link": "https://www.traveloka.com/en-id/activities/indonesia/product/dufan-ancol-tickets-2001186750067"
   },
   {
     "id": 2,
     "price_min": 70000,
-    "price_max": 200000
+    "price_max": 200000,
+    "link": "https://www.tiket.com/to-do/activity-atlantis-water-adventure-ancol"
   },
   {
     "id": 3,
     "price_min": 67000,
-    "price_max": 183000
+    "price_max": 183000,
+    "link": "https://www.tiket.com/to-do/activity-samudra-ancol"
   },
   {
     "id": 4,
     "price_min": 82000,
-    "price_max": 223000
+    "price_max": 223000,
+    "link": "https://www.trip.com/travel-guide/attraction/east-jakarta/taman-mini-indonesia-indah-23027774"
   },
   {
     "id": 5,
     "price_min": 74000,
-    "price_max": 190000
+    "price_max": 190000,
+    "link": "https://www.transentertainment.com/transstudio/cibubur"
   },
   {
     "id": 6,
     "price_min": 61000,
-    "price_max": 207000
+    "price_max": 207000,
+    "link": "https://www.tiket.com/to-do/attraction-jogjabay-waterpark"
   },
   {
     "id": 7,
     "price_min": 98000,
-    "price_max": 232000
+    "price_max": 232000,
+    "link": "https://mekarsari.com/"
   },
   {
     "id": 8,
     "price_min": 56000,
-    "price_max": 165000
+    "price_max": 165000,
+    "link": "https://www.trip.com/travel-guide/attraction/cisarua/taman-safari-indonesia-bogor-38804452"
   },
   {
     "id": 9,
     "price_min": 77000,
-    "price_max": 191000
+    "price_max": 191000,
+    "link": ""
   },
   {
     "id": 10,
     "price_min": 89000,
-    "price_max": 214000
+    "price_max": 214000,
+    "link": ""
   },
   {
     "id": 11,
     "price_min": 65000,
-    "price_max": 172000
+    "price_max": 172000,
+    "link": ""
   },
   {
     "id": 12,
     "price_min": 70000,
-    "price_max": 198000
+    "price_max": 198000,
+    "link": ""
   },
   {
     "id": 13,
     "price_min": 79000,
-    "price_max": 221000
+    "price_max": 221000,
+    "link": ""
   },
   {
     "id": 14,
     "price_min": 93000,
-    "price_max": 235000
+    "price_max": 235000,
+    "link": ""
   },
   {
     "id": 15,
     "price_min": 58000,
-    "price_max": 149000
+    "price_max": 149000,
+    "link": ""
   },
   {
     "id": 16,
     "price_min": 69000,
-    "price_max": 185000
+    "price_max": 185000,
+    "link": ""
   },
   {
     "id": 17,
     "price_min": 87000,
-    "price_max": 221000
+    "price_max": 221000,
+    "link": ""
   },
   {
     "id": 18,
     "price_min": 72000,
-    "price_max": 198000
+    "price_max": 198000,
+    "link": ""
   },
   {
     "id": 19,
     "price_min": 66000,
-    "price_max": 153000
+    "price_max": 153000,
+    "link": ""
   },
   {
     "id": 20,
     "price_min": 99000,
-    "price_max": 218000
+    "price_max": 218000,
+    "link": ""
   },
   {
     "id": 21,
     "price_min": 80000,
-    "price_max": 199000
+    "price_max": 199000,
+    "link": ""
   },
   {
     "id": 22,
     "price_min": 61000,
-    "price_max": 166000
+    "price_max": 166000,
+    "link": ""
   },
   {
     "id": 23,
     "price_min": 95000,
-    "price_max": 229000
+    "price_max": 229000,
+    "link": ""
   },
   {
     "id": 24,
     "price_min": 54000,
-    "price_max": 147000
+    "price_max": 147000,
+    "link": ""
   },
   {
     "id": 25,
     "price_min": 76000,
-    "price_max": 187000
+    "price_max": 187000,
+    "link": ""
   },
   {
     "id": 26,
     "price_min": 88000,
-    "price_max": 224000
+    "price_max": 224000,
+    "link": ""
   },
   {
     "id": 27,
     "price_min": 66000,
-    "price_max": 178000
+    "price_max": 178000,
+    "link": ""
   },
   {
     "id": 28,
     "price_min": 73000,
-    "price_max": 195000
+    "price_max": 195000,
+    "link": ""
   },
   {
     "id": 29,
     "price_min": 94000,
-    "price_max": 231000
+    "price_max": 231000,
+    "link": ""
   },
   {
     "id": 30,
     "price_min": 85000,
-    "price_max": 207000
+    "price_max": 207000,
+    "link": ""
   },
   {
     "id": 31,
     "price_min": 77000,
-    "price_max": 182000
+    "price_max": 182000,
+    "link": ""
   },
   {
     "id": 32,
     "price_min": 69000,
-    "price_max": 176000
+    "price_max": 176000,
+    "link": ""
   }
 ]

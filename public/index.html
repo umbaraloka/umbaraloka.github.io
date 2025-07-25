@@ -127,6 +127,7 @@
     const priceText = price
       ? `Rp${price.price_min.toLocaleString()} - Rp${price.price_max.toLocaleString()}`
       : 'N/A';
+    const detailLink = price && price.link ? price.link : '#';
 
     const card = document.createElement('div');
     card.className = 'card';
@@ -138,7 +139,7 @@
         <div class="meta">Location: ${item.location}</div>
         <div class="meta">Count: ${item.raw_count} / ${item.max_people}</div>
         <div class="crowd ${getCrowdClass(item.busyness_score)}">Busyness: ${item.busyness_score}</div>
-        <a href="#" class="btn">Details</a>
+        <a href="${detailLink}" class="btn" target="_blank" rel="noopener">Details</a>
       </div>
     `;
     container.appendChild(card);
@@ -146,7 +147,6 @@
 
   async function loadData() {
     try {
-      // Fetch destinations and pricing in parallel
       const [destRes, priceRes] = await Promise.all([
         fetch('/destinations'),
         fetch('/pricing')
@@ -159,11 +159,7 @@
       const destinations = await destRes.json();
       const pricing = await priceRes.json();
 
-      // Create a map of id -> pricing
-      const pricingMap = new Map();
-      pricing.forEach(p => {
-        pricingMap.set(p.id, p);
-      });
+      const pricingMap = new Map(pricing.map(p => [p.id, p]));
 
       destinations.forEach(dest => {
         createCard(dest, pricingMap);
