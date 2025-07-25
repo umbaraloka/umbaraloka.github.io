@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "price_min": 90000,
+    "price_max": 250000
+  },
+  {
+    "id": 2,
+    "price_min": 70000,
+    "price_max": 200000
+  },
+  {
+    "id": 3,
+    "price_min": 67000,
+    "price_max": 183000
+  },
+  {
+    "id": 4,
+    "price_min": 82000,
+    "price_max": 223000
+  },
+  {
+    "id": 5,
+    "price_min": 74000,
+    "price_max": 190000
+  },
+  {
+    "id": 6,
+    "price_min": 61000,
+    "price_max": 207000
+  },
+  {
+    "id": 7,
+    "price_min": 98000,
+    "price_max": 232000
+  },
+  {
+    "id": 8,
+    "price_min": 56000,
+    "price_max": 165000
+  },
+  {
+    "id": 9,
+    "price_min": 77000,
+    "price_max": 191000
+  },
+  {
+    "id": 10,
+    "price_min": 89000,
+    "price_max": 214000
+  },
+  {
+    "id": 11,
+    "price_min": 65000,
+    "price_max": 172000
+  },
+  {
+    "id": 12,
+    "price_min": 70000,
+    "price_max": 198000
+  },
+  {
+    "id": 13,
+    "price_min": 79000,
+    "price_max": 221000
+  },
+  {
+    "id": 14,
+    "price_min": 93000,
+    "price_max": 235000
+  },
+  {
+    "id": 15,
+    "price_min": 58000,
+    "price_max": 149000
+  },
+  {
+    "id": 16,
+    "price_min": 69000,
+    "price_max": 185000
+  },
+  {
+    "id": 17,
+    "price_min": 87000,
+    "price_max": 221000
+  },
+  {
+    "id": 18,
+    "price_min": 72000,
+    "price_max": 198000
+  },
+  {
+    "id": 19,
+    "price_min": 66000,
+    "price_max": 153000
+  },
+  {
+    "id": 20,
+    "price_min": 99000,
+    "price_max": 218000
+  },
+  {
+    "id": 21,
+    "price_min": 80000,
+    "price_max": 199000
+  },
+  {
+    "id": 22,
+    "price_min": 61000,
+    "price_max": 166000
+  },
+  {
+    "id": 23,
+    "price_min": 95000,
+    "price_max": 229000
+  },
+  {
+    "id": 24,
+    "price_min": 54000,
+    "price_max": 147000
+  },
+  {
+    "id": 25,
+    "price_min": 76000,
+    "price_max": 187000
+  },
+  {
+    "id": 26,
+    "price_min": 88000,
+    "price_max": 224000
+  },
+  {
+    "id": 27,
+    "price_min": 66000,
+    "price_max": 178000
+  },
+  {
+    "id": 28,
+    "price_min": 73000,
+    "price_max": 195000
+  },
+  {
+    "id": 29,
+    "price_min": 94000,
+    "price_max": 231000
+  },
+  {
+    "id": 30,
+    "price_min": 85000,
+    "price_max": 207000
+  },
+  {
+    "id": 31,
+    "price_min": 77000,
+    "price_max": 182000
+  },
+  {
+    "id": 32,
+    "price_min": 69000,
+    "price_max": 176000
+  }
+]

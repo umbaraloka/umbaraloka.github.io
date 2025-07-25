@@ -18,6 +18,19 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+// Serve pricing.json at /pricing
+app.get('/pricing', (req, res) => {
+  const filePath = path.join(__dirname, 'pricing.json');
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.error('Error reading pricing.json:', err);
+      return res.status(500).json({ error: 'Internal server error' });
+    }
+    res.setHeader('Content-Type', 'application/json');
+    res.send(data);
+  });
+});
+
 // 1. GET /destinations
 //    Returns id, name, type, lat, lon, and latest crowd_score
 app.get('/destinations', async (req, res) => {
