@@ -33,6 +33,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding-bottom: 2rem;
     }
     h1 {
       font-size: 2.5rem;
@@ -75,14 +76,8 @@
     .card .meta {
       font-size: 0.9rem;
       color: #666;
-      margin-bottom: 1rem;
+      margin-bottom: 0px;
     }
-    .status {
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-    }
-    .status.open { color: #2e7d32; }
-    .status.closed { color: #c62828; }
     .crowd.low { color: #2e7d32; }
     .crowd.medium { color: #f9a825; }
     .crowd.high { color: #c62828; }
@@ -113,54 +108,74 @@
   </header>
   <main>
     <h1>Nearby Theme Parks</h1>
-    <div class="cards">
-      <div class="card">
-        <img src="/img/x1.webp" alt="picture1" class="preview">
-        <div class="card-content">
-          <h2>Placeholder1</h2>
-          <div class="meta">Bandung Timur</div>
-          <div class="status open">Open Now</div>
-          <div class="crowd low">Crowd: Low</div>
-          <div class="meta">Pricing: 10-50k idr<br>Wait: 10-20 mins</div>
-          <a href="#" class="btn">Details</a>
-        </div>
-      </div>
-      <div class="card">
-        <img src="/img/x2.webp" alt="picture2" class="preview">
-        <div class="card-content">
-          <h2>Placeholder2</h2>
-          <div class="meta">Bandung Barat</div>
-          <div class="status open">Open Now</div>
-          <div class="crowd medium">Crowd: Medium</div>
-          <div class="meta">Pricing: 100-200k idr<br>Wait: 30-45 mins</div>
-          <a href="#" class="btn">Details</a>
-        </div>
-      </div>
-      <div class="card">
-        <img src="/img/x3.webp" alt="picture3" class="preview">
-        <div class="card-content">
-          <h2>Placeholder3</h2>
-          <div class="meta">Bandung Tengah</div>
-          <div class="status closed">Closed</div>
-          <div class="crowd high">Crowd: High</div>
-          <div class="meta">Pricing: 500-1000k idr<br>Wait: N/A</div>
-          <a href="#" class="btn">Details</a>
-        </div>
-      </div>
-      <div class="card">
-        <img src="/img/x4.webp" alt="picture4" class="preview">
-        <div class="card-content">
-          <h2>Placeholder4</h2>
-          <div class="meta">Bandung Utara</div>
-          <div class="status open">Open Now</div>
-          <div class="crowd low">Crowd: Low</div>
-          <div class="meta">Pricing: 5000-10000k idr<br>Wait: 5-10 mins</div>
-          <a href="#" class="btn">Details</a>
-        </div>
-      </div>
-    </div> <!-- close cards div -->
-    <p><br></p>
+    <div class="cards"></div>
   </main>
   <footer>&copy; 2025 Umbaraloka</footer>
+
+<script>
+  const container = document.querySelector('.cards');
+
+  function getCrowdClass(score) {
+    const s = parseFloat(score);
+    if (s < 3) return 'low';
+    if (s < 7) return 'medium';
+    return 'high';
+  }
+
+  function createCard(item, pricingMap) {
+    const price = pricingMap.get(item.id);
+    const priceText = price
+      ? `Rp${price.price_min.toLocaleString()} - Rp${price.price_max.toLocaleString()}`
+      : 'N/A';
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <img src="/img/${item.id}.webp" alt="${item.name}" class="preview">
+      <div class="card-content">
+        <h2>${item.name}</h2>
+        <div class="meta">Price: ${priceText}</div>
+        <div class="meta">Location: ${item.location}</div>
+        <div class="meta">Count: ${item.raw_count} / ${item.max_people}</div>
+        <div class="crowd ${getCrowdClass(item.busyness_score)}">Busyness: ${item.busyness_score}</div>
+        <a href="#" class="btn">Details</a>
+      </div>
+    `;
+    container.appendChild(card);
+  }
+
+  async function loadData() {
+    try {
+      // Fetch destinations and pricing in parallel
+      const [destRes, priceRes] = await Promise.all([
+        fetch('/destinations'),
+        fetch('/pricing')
+      ]);
+
+      if (!destRes.ok || !priceRes.ok) {
+        throw new Error("Failed to fetch data");
+      }
+
+      const destinations = await destRes.json();
+      const pricing = await priceRes.json();
+
+      // Create a map of id -> pricing
+      const pricingMap = new Map();
+      pricing.forEach(p => {
+        pricingMap.set(p.id, p);
+      });
+
+      destinations.forEach(dest => {
+        createCard(dest, pricingMap);
+      });
+    } catch (error) {
+      container.innerHTML = `<p>Error loading data: ${error.message}</p>`;
+      console.error('Error:', error);
+    }
+  }
+
+  loadData();
+</script>
+
 </body>
 </html>
