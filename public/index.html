@@ -35,18 +35,47 @@
       align-items: center;
       padding-bottom: 2rem;
     }
+
     .search-container {
       display: flex;
-      gap: 0.5rem;
-      margin: 1rem 0;
+      background: #fff;
+      border-radius: 50px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 100%;
+      margin-top: 2rem;
+      margin-bottom: 1.2rem;
+      max-width: 600px;
     }
-    .search-container input,
+
+    .search-container input[type="search"] {
+      flex: 1;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      outline: none;
+    }
+
     .search-container select {
-      padding: 0.5rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+      border: none;
+      padding: 12px 40px;
+      font-size: 16px;
+      outline: none;
+      appearance: none;
+      background-color: #f4f4f4;
+      cursor: pointer;
+      transition: background 0.1s ease;
+
+      background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='gray' d='M7 10l5 5 5-5z'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 15px center;
+      background-size: 1em;
     }
+
+    .search-container select:hover {
+      background-color: #efefef;
+    }
+
     .cards {
       width: 100%;
       max-width: 1200px;
@@ -205,3 +234,4 @@
 </script>
 </body>
 </html>
+
