@@ -35,12 +35,17 @@
       align-items: center;
       padding-bottom: 2rem;
     }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+    .search-container {
+      display: flex;
+      gap: 0.5rem;
+      margin: 1rem 0;
     }
-    @media only screen and (max-width: 770px) {
-      h1 {font-size: 1.5rem;}
+    .search-container input,
+    .search-container select {
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
     }
     .cards {
       width: 100%;
@@ -73,10 +78,10 @@
       margin: 0 0 0.5rem;
       font-size: 1.5rem;
     }
-    .card .meta {
+    .meta {
       font-size: 0.9rem;
       color: #666;
-      margin-bottom: 0px;
+      margin-bottom: 0.5rem;
     }
     .crowd.low { color: #2e7d32; }
     .crowd.medium { color: #f9a825; }
@@ -107,13 +112,23 @@
     <img src="/logo-2.png" alt="secondary logo" />
   </header>
   <main>
-    <h1>Nearby Theme Parks</h1>
+    <div class="search-container">
+      <input id="searchInput" type="search" placeholder="Search..." aria-label="Search destinations">
+      <select id="typeSelect">
+        <option value="all">All Types</option>
+        <option value="attractions">Attractions</option>
+        <option value="restaurants">Restaurants</option>
+      </select>
+    </div>
     <div class="cards"></div>
   </main>
   <footer>&copy; 2025 Umbaraloka</footer>
 
 <script>
   const container = document.querySelector('.cards');
+  const searchInput = document.getElementById('searchInput');
+  const typeSelect = document.getElementById('typeSelect');
+  let allItems = [];
 
   function getCrowdClass(score) {
     const s = parseFloat(score);
@@ -135,7 +150,7 @@
       <img src="/img/${item.id}.webp" alt="${item.name}" class="preview">
       <div class="card-content">
         <h2>${item.name}</h2>
-        <div class="meta">Price: ${priceText}</div>
+                <div class="meta">Price: ${priceText}</div>
         <div class="meta">Location: ${item.location}</div>
         <div class="meta">Count: ${item.raw_count} / ${item.max_people}</div>
         <div class="crowd ${getCrowdClass(item.busyness_score)}">Busyness: ${item.busyness_score}</div>
@@ -145,6 +160,24 @@
     container.appendChild(card);
   }
 
+  function filterAndRender() {
+    const query = searchInput.value.toLowerCase();
+    const type = typeSelect.value;
+    container.innerHTML = '';
+
+    const pricingMap = new Map(allPricing.map(p => [p.id, p]));
+
+    allItems
+      .filter(item => {
+        const matchesType = type === 'all' || item.type === type;
+        const matchesQuery = item.name.toLowerCase().includes(query) ||
+                             item.location.toLowerCase().includes(query);
+        return matchesType && matchesQuery;
+      })
+      .forEach(item => createCard(item, pricingMap));
+  }
+
+  let allPricing = [];
   async function loadData() {
     try {
       const [destRes, priceRes] = await Promise.all([
@@ -156,19 +189,17 @@
         throw new Error("Failed to fetch data");
       }
 
-      const destinations = await destRes.json();
-      const pricing = await priceRes.json();
-
-      const pricingMap = new Map(pricing.map(p => [p.id, p]));
-
-      destinations.forEach(dest => {
-        createCard(dest, pricingMap);
-      });
+      allItems = await destRes.json();
+      allPricing = await priceRes.json();
+      filterAndRender();
     } catch (error) {
       container.innerHTML = `<p>Error loading data: ${error.message}</p>`;
       console.error('Error:', error);
     }
   }
+
+  searchInput.addEventListener('input', filterAndRender);
+  typeSelect.addEventListener('change', filterAndRender);
 
   loadData();
 </script>
