@@ -169,26 +169,26 @@
   },
   {
     "id": 29,
-    "price_min": 94000,
-    "price_max": 231000,
-    "link": ""
+    "price_min": 15000,
+    "price_max": 70000,
+    "link": "https://www.tripadvisor.co.id/Restaurant_Review-g664666-d15545121-Reviews-Oh_Warung_Gili-Gili_Trawangan_Gili_Islands_Pemenang_Lombok_West_Nusa_Tenggara"
   },
   {
     "id": 30,
-    "price_min": 85000,
-    "price_max": 207000,
-    "link": ""
+    "price_min": 50000,
+    "price_max": 160000,
+    "link": "https://abhayagiri.co.id/dining/"
   },
   {
     "id": 31,
-    "price_min": 77000,
-    "price_max": 182000,
-    "link": ""
+    "price_min": 100000,
+    "price_max": 175000,
+    "link": "https://plataran.com/property/plataran-borobudur/dining/"
   },
   {
     "id": 32,
-    "price_min": 69000,
-    "price_max": 176000,
-    "link": ""
+    "price_min": 15000,
+    "price_max": 100000,
+    "link": "https://kampoengrawa.com/"
   }
 ]
