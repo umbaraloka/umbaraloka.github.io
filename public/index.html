@@ -177,6 +177,8 @@
         <option value="default">Sort: Default</option>
         <option value="busyness-asc">Busyness: Low to High</option>
         <option value="busyness-desc">Busyness: High to Low</option>
+        <option value="pricing-asc">Pricing: Low to High</option>
+        <option value="pricing-desc">Pricing: High to Low</option>
       </select>
     </div>
     <div class="cards"></div>
@@ -226,9 +228,8 @@
     const query = searchInput.value.toLowerCase();
     const type = typeSelect.value;
     const sort = sortSelect.value;
-    container.innerHTML = '';
-
     const pricingMap = new Map(allPricing.map(p => [p.id, p]));
+    container.innerHTML = '';
 
     let filtered = allItems.filter(item => {
       const matchesType = type === 'all' || item.type === type;
@@ -241,6 +242,18 @@
       filtered.sort((a, b) => a.busyness_score - b.busyness_score);
     } else if (sort === 'busyness-desc') {
       filtered.sort((a, b) => b.busyness_score - a.busyness_score);
+    } else if (sort === 'pricing-asc') {
+      filtered.sort((a, b) => {
+        const aPrice = pricingMap.get(a.id);
+        const bPrice = pricingMap.get(b.id);
+        return (aPrice?.price_min ?? Infinity) - (bPrice?.price_min ?? Infinity);
+      });
+    } else if (sort === 'pricing-desc') {
+      filtered.sort((a, b) => {
+        const aPrice = pricingMap.get(a.id);
+        const bPrice = pricingMap.get(b.id);
+        return (aPrice?.price_max ?? -Infinity) - (bPrice?.price_max ?? -Infinity);
+      });
     }
 
     filtered.forEach(item => createCard(item, pricingMap));
