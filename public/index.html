@@ -252,7 +252,7 @@
       filtered.sort((a, b) => {
         const aPrice = pricingMap.get(a.id);
         const bPrice = pricingMap.get(b.id);
-        return (aPrice?.price_max ?? -Infinity) - (bPrice?.price_max ?? -Infinity);
+        return (bPrice?.price_max ?? -Infinity) - (aPrice?.price_max ?? -Infinity);
       });
     }
 
