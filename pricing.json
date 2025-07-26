@@ -86,7 +86,7 @@
   {
     "id": 15,
     "price_min": 58000,
-    "price_max": 149000,
+    "price_max": 150000,
     "link": ""
   },
   {
@@ -97,50 +97,50 @@
   },
   {
     "id": 17,
-    "price_min": 87000,
-    "price_max": 221000,
+    "price_min": 900000,
+    "price_max": 1600000,
     "link": ""
   },
   {
     "id": 18,
-    "price_min": 72000,
-    "price_max": 198000,
+    "price_min": 595000,
+    "price_max": 950000,
     "link": ""
   },
   {
     "id": 19,
-    "price_min": 66000,
-    "price_max": 153000,
+    "price_min": 150000,
+    "price_max": 425000,
     "link": ""
   },
   {
     "id": 20,
-    "price_min": 99000,
-    "price_max": 218000,
+    "price_min": 540000,
+    "price_max": 830000,
     "link": ""
   },
   {
     "id": 21,
-    "price_min": 80000,
-    "price_max": 199000,
+    "price_min": 150000,
+    "price_max": 300000,
     "link": ""
   },
   {
     "id": 22,
-    "price_min": 61000,
-    "price_max": 166000,
+    "price_min": 120000,
+    "price_max": 408000,
     "link": ""
   },
   {
     "id": 23,
-    "price_min": 95000,
-    "price_max": 229000,
+    "price_min": 140000,
+    "price_max": 350000,
     "link": ""
   },
   {
     "id": 24,
-    "price_min": 54000,
-    "price_max": 147000,
+    "price_min": 338000,
+    "price_max": 500000,
     "link": ""
   },
   {
