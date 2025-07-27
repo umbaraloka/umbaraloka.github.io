@@ -216,9 +216,8 @@
           <h2>${item.name}</h2>
           <div class="meta">Price: ${priceText}</div>
           <div class="meta">Location: ${item.location}</div>
-          <div class="meta">Count: ${item.raw_count} / ${item.max_people}</div>
           </div>
-        <div class="crowd ${getCrowdClass(item.busyness_score)}"><b>Busyness:</b> ${item.busyness_score}</div>
+        <div class="crowd ${getCrowdClass(item.busyness_score)}"><b>Busyness:</b> ${item.busyness_score} / 10</div>
         <a href="${detailLink}" class="btn" target="_blank" rel="noopener">Details</a>
       </div>
     `;
