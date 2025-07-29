@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cultural Heritage Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <style>
+    :root {
+      --color-bg: #f0f2f5;
+      --color-primary: #1e88e5;
+      --color-accent: #ff7043;
+      --color-surface: #ffffff;
+      --radius: 12px;
+      --shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--color-bg);
+      display: grid;
+      grid-template-rows: auto 1fr;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    header {
+      background: var(--color-surface);
+      padding: 0.75rem 1.5rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+    header input {
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: var(--radius);
+      width: 200px;
+      font-size: 0.9rem;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      overflow: hidden;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: var(--color-surface);
+      padding: 1rem;
+      box-shadow: var(--shadow);
+      overflow-y: auto;
+    }
+    .sidebar h2 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+    .place-item {
+      padding: 0.5rem;
+      border-radius: var(--radius);
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .place-item:hover {
+      background: #eef5ff;
+    }
+
+    /* Map */
+    #map {
+      width: 100%;
+      height: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Heritage Explorer</h1>
+    <input type="search" id="searchInput" placeholder="Search places…" />
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>Places</h2>
+      <div id="placesList"></div>
+    </aside>
+    <div id="map"></div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([-4.5, 113], 5);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    const places = [
+        { id: 1, name: "Borobudur Temple Compounds", region: "Magelang, Central Java", lat: -7.6079, lon: 110.2038 },
+        { id: 2, name: "Prambanan Temple Compounds", region: "Yogyakarta Region", lat: -7.7522, lon: 110.4916 },
+        { id: 3, name: "Sangiran Early Man Site", region: "Sragen, Central Java", lat: -7.336, lon: 110.81 },
+        { id: 4, name: "Bali Subak Cultural Landscape", region: "Tabanan, Bali", lat: -8.4095, lon: 115.1889 },
+        { id: 5, name: "Gunung Padang Megalithic Site", region: "Cianjur, West Java", lat: -6.6894, lon: 107.0125 },
+        { id: 6, name: "Goa Gajah (Elephant Cave)", region: "Gianyar, Bali", lat: -8.5185, lon: 115.2953 },
+        { id: 7, name: "Tana Toraja", region: "South Sulawesi", lat: -3.0545, lon: 119.8753 },
+        { id: 8, name: "Komodo National Park", region: "East Nusa Tenggara", lat: -8.55, lon: 119.49 },
+        { id: 9, name: "Ujung Kulon National Park", region: "Pandeglang, West Java", lat: -6.7333, lon: 105.267 },
+        { id: 10, name: "Ombilin Coal Mining Heritage of Sawahlunto", region: "West Sumatra", lat: -0.6833, lon: 100.75 },
+        { id: 11, name: "Yogyakarta Cosmological Axis", region: "Yogyakarta City", lat: -7.8014, lon: 110.3649 },
+        { id: 12, name: "Trowulan (Majapahit Capital)", region: "Mojokerto, East Java", lat: -7.552, lon: 112.407 },
+        { id: 13, name: "Jakarta Old Town (Kota Tua)", region: "North Jakarta", lat: -6.1354, lon: 106.8133 },
+        { id: 14, name: "Jam Gadang Clock Tower", region: "Bukittinggi, West Sumatra", lat: -0.3039, lon: 100.3695 },
+        { id: 15, name: "Ulun Danu Beratan Temple", region: "Bedugul, Bali", lat: -8.2766, lon: 115.166 },
+        { id: 16, name: "Uluwatu Temple", region: "Pecatu, Bali", lat: -8.8297, lon: 115.087 }
+    ];
+
+    // Create markers and list items
+    const markers = {};
+    const placesList = document.getElementById('placesList');
+
+    places.forEach(place => {
+      const marker = L.marker([place.lat, place.lon]).addTo(map)
+        .bindPopup(`<strong>${place.name}</strong><br>${place.region}`);
+      markers[place.id] = marker;
+
+      // Sidebar item
+      const item = document.createElement('div');
+      item.className = 'place-item';
+      item.textContent = place.name;
+      item.onclick = () => {
+        map.flyTo([place.lat, place.lon], 10, {
+          duration: 2
+        });
+
+        map.once('moveend', () => {
+          marker.openPopup();
+        });
+      };
+      placesList.appendChild(item);
+    });
+
+    document.getElementById('searchInput').addEventListener('input', e => {
+      const query = e.target.value.toLowerCase();
+      places.forEach(place => {
+        const match = place.name.toLowerCase().includes(query);
+        const item = placesList.children[place.id - 1];
+        item.style.display = match ? 'block' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>

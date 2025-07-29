@@ -19,6 +19,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+app.get('/map', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'map.html'));
+});
+
 // Serve pricing.json at /pricing
 app.get('/pricing', (req, res) => {
   const filePath = path.join(__dirname, 'pricing.json');
