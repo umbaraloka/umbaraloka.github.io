@@ -56,6 +56,15 @@
       width: 200px;
       font-size: 0.9rem;
     }
+    /* Toggle button */
+    #toggleSidebarBtn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--color-primary);
+    }
 
     .layout {
       display: grid;
@@ -95,17 +104,59 @@
       box-shadow: var(--shadow);
       overflow: hidden;
     }
+
+    /* Responsive below 700px */
+    @media (max-width: 700px) {
+      header {
+        flex-direction: row;
+        align-items: center;
+      }
+      header h1 {
+        flex: 1;
+      }
+      header input {
+        display: none;
+      }
+      #toggleSidebarBtn {
+        display: block;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        display: none;
+        position: absolute;
+        top: 3.5rem; /* header height */
+        left: 0;
+        width: 80%;
+        max-width: 300px;
+        height: calc(100% - 3.5rem);
+        z-index: 1000;
+        border-right: 1px solid #ddd;
+        background: var(--color-surface);
+      }
+      .sidebar.visible {
+        display: block;
+      }
+
+      #map {
+        height: 100%;
+        border-radius: var(--radius) 0 0 0;
+      }
+    }
   </style>
 </head>
 <body>
 
   <header>
     <h1>Heritage Explorer</h1>
+    <button id="toggleSidebarBtn" aria-label="Toggle sidebar">☰</button>
     <input type="search" id="searchInput" placeholder="Search places…" />
   </header>
 
   <div class="layout">
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
       <h2>Places</h2>
       <div id="placesList"></div>
     </aside>
@@ -122,32 +173,37 @@
     }).addTo(map);
 
     const places = [
-        { id: 1, name: "Borobudur Temple Compounds", region: "Magelang, Central Java", lat: -7.6079, lon: 110.2038 },
-        { id: 2, name: "Prambanan Temple Compounds", region: "Yogyakarta Region", lat: -7.7522, lon: 110.4916 },
-        { id: 3, name: "Sangiran Early Man Site", region: "Sragen, Central Java", lat: -7.336, lon: 110.81 },
-        { id: 4, name: "Bali Subak Cultural Landscape", region: "Tabanan, Bali", lat: -8.4095, lon: 115.1889 },
-        { id: 5, name: "Gunung Padang Megalithic Site", region: "Cianjur, West Java", lat: -6.6894, lon: 107.0125 },
-        { id: 6, name: "Goa Gajah (Elephant Cave)", region: "Gianyar, Bali", lat: -8.5185, lon: 115.2953 },
-        { id: 7, name: "Tana Toraja", region: "South Sulawesi", lat: -3.0545, lon: 119.8753 },
-        { id: 8, name: "Komodo National Park", region: "East Nusa Tenggara", lat: -8.55, lon: 119.49 },
-        { id: 9, name: "Ujung Kulon National Park", region: "Pandeglang, West Java", lat: -6.7333, lon: 105.267 },
-        { id: 10, name: "Ombilin Coal Mining Heritage of Sawahlunto", region: "West Sumatra", lat: -0.6833, lon: 100.75 },
-        { id: 11, name: "Yogyakarta Cosmological Axis", region: "Yogyakarta City", lat: -7.8014, lon: 110.3649 },
-        { id: 12, name: "Trowulan (Majapahit Capital)", region: "Mojokerto, East Java", lat: -7.552, lon: 112.407 },
-        { id: 13, name: "Jakarta Old Town (Kota Tua)", region: "North Jakarta", lat: -6.1354, lon: 106.8133 },
-        { id: 14, name: "Jam Gadang Clock Tower", region: "Bukittinggi, West Sumatra", lat: -0.3039, lon: 100.3695 },
-        { id: 15, name: "Ulun Danu Beratan Temple", region: "Bedugul, Bali", lat: -8.2766, lon: 115.166 },
-        { id: 16, name: "Uluwatu Temple", region: "Pecatu, Bali", lat: -8.8297, lon: 115.087 }
+      { id: 1, name: "Borobudur Temple Compounds", region: "Magelang, Central Java", lat: -7.6079, lon: 110.2038 },
+      { id: 2, name: "Prambanan Temple Compounds", region: "Yogyakarta Region", lat: -7.7522, lon: 110.4916 },
+      { id: 3, name: "Sangiran Early Man Site", region: "Sragen, Central Java", lat: -7.336, lon: 110.81 },
+      { id: 4, name: "Bali Subak Cultural Landscape", region: "Tabanan, Bali", lat: -8.4095, lon: 115.1889 },
+      { id: 5, name: "Gunung Padang Megalithic Site", region: "Cianjur, West Java", lat: -6.6894, lon: 107.0125 },
+      { id: 6, name: "Goa Gajah (Elephant Cave)", region: "Gianyar, Bali", lat: -8.5185, lon: 115.2953 },
+      { id: 7, name: "Tana Toraja", region: "South Sulawesi", lat: -3.0545, lon: 119.8753 },
+      { id: 8, name: "Komodo National Park", region: "East Nusa Tenggara", lat: -8.55, lon: 119.49 },
+      { id: 9, name: "Ujung Kulon National Park", region: "Pandeglang, West Java", lat: -6.7333, lon: 105.267 },
+      { id: 10, name: "Ombilin Coal Mining Heritage of Sawahlunto", region: "West Sumatra", lat: -0.6833, lon: 100.75 },
+      { id: 11, name: "Yogyakarta Cosmological Axis", region: "Yogyakarta City", lat: -7.8014, lon: 110.3649 },
+      { id: 12, name: "Trowulan (Majapahit Capital)", region: "Mojokerto, East Java", lat: -7.552, lon: 112.407 },
+      { id: 13, name: "Jakarta Old Town (Kota Tua)", region: "North Jakarta", lat: -6.1354, lon: 106.8133 },
+      { id: 14, name: "Jam Gadang Clock Tower", region: "Bukittinggi, West Sumatra", lat: -0.3039, lon: 100.3695 },
+      { id: 15, name: "Ulun Danu Beratan Temple", region: "Bedugul, Bali", lat: -8.2766, lon: 115.166 },
+      { id: 16, name: "Uluwatu Temple", region: "Pecatu, Bali", lat: -8.8297, lon: 115.087 }
     ];
 
-    // Create markers and list items
     const markers = {};
     const placesList = document.getElementById('placesList');
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.getElementById('toggleSidebarBtn');
+
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('visible');
+    });
 
     places.forEach(place => {
       const marker = L.marker([place.lat, place.lon]).addTo(map)
-        .bindPopup(`
-          <strong>${place.name}</strong><br>
+        .bindPopup(
+          `<strong>${place.name}</strong><br>
           ${place.region}<br>
           <img src="img/${place.id}.webp" alt="${place.name}" style="width: 100%; max-width: 200px; border-radius: 8px; margin-top: 0.5rem;">
         `);
@@ -157,12 +213,9 @@
       item.className = 'place-item';
       item.textContent = place.name;
       item.onclick = () => {
-        map.flyTo([place.lat, place.lon], 10, {
-          duration: 2
-        });
-        map.once('moveend', () => {
-          marker.openPopup();
-        });
+        map.flyTo([place.lat, place.lon], 10, { duration: 2 });
+        map.once('moveend', () => marker.openPopup());
+        if (window.innerWidth <= 700) sidebar.classList.remove('visible');
       };
       placesList.appendChild(item);
     });
@@ -170,9 +223,8 @@
     document.getElementById('searchInput').addEventListener('input', e => {
       const query = e.target.value.toLowerCase();
       places.forEach(place => {
-        const match = place.name.toLowerCase().includes(query);
         const item = placesList.children[place.id - 1];
-        item.style.display = match ? 'block' : 'none';
+        item.style.display = place.name.toLowerCase().includes(query) ? 'block' : 'none';
       });
     });
   </script>
