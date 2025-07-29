@@ -146,10 +146,13 @@
 
     places.forEach(place => {
       const marker = L.marker([place.lat, place.lon]).addTo(map)
-        .bindPopup(`<strong>${place.name}</strong><br>${place.region}`);
+        .bindPopup(`
+          <strong>${place.name}</strong><br>
+          ${place.region}<br>
+          <img src="img/${place.id}.webp" alt="${place.name}" style="width: 100%; max-width: 200px; border-radius: 8px; margin-top: 0.5rem;">
+        `);
       markers[place.id] = marker;
 
-      // Sidebar item
       const item = document.createElement('div');
       item.className = 'place-item';
       item.textContent = place.name;
@@ -157,7 +160,6 @@
         map.flyTo([place.lat, place.lon], 10, {
           duration: 2
         });
-
         map.once('moveend', () => {
           marker.openPopup();
         });
