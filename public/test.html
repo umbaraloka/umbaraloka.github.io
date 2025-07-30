@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Map of Indonesia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    /* Reset and basic styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      font-family: sans-serif;
+      background: url('background.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+    body { display: flex; flex-direction: column; min-height: 100vh; }
+
+    header {
+      position: absolute;
+      top: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      border-radius: 999px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      padding: 0.75rem 2rem;
+      border-radius: 999px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-link {
+      text-decoration: none;
+      font-weight: 500;
+      color: #555;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    .nav-link:hover {
+      background: #f0f0f0;
+    }
+
+    .nav-link.active {
+      background-color: #1976d2;
+      color: white;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+    }
+
+    .left-panel {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+    .left-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .right-panel {
+      width: 280px;
+      max-width: 80vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    .card img.preview {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .card-content {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .card-info { margin-bottom: auto; }
+    .card h2 { margin: 0; font-size: 1.25rem; }
+    .meta { font-size: 0.9rem; color: #666; }
+    .crowd.low   { color: #2e7d32; }
+    .crowd.medium{ color: #f9a825; }
+    .crowd.high  { color: #c62828; }
+    .btn {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      background-color: #1976d2;
+      color: #fff;
+      text-decoration: none;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .bottom_bubble {
+      margin: 1rem auto 0 auto;
+      margin-bottom: 1rem;
+      padding: 0.75rem 1.5rem;
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 999px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      width: fit-content;
+      max-width: 90%;
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: #666;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="nav-link active">Main Page</a>
+      <a href="secondary.html" class="nav-link">Secondary</a>
+      <a href="tertiary.html" class="nav-link">Tertiary</a>
+      <a href="about.html" class="nav-link">About Us</a>
+    </nav>
+  </header>
+  <main>
+    <!-- Left side: large image -->
+    <div class="left-panel">
+      <img src="/id.svg" alt="Left Panel Image">
+    </div>
+
+    <!-- Right side: card -->
+    <div class="right-panel">
+      <div class="card">
+        <!-- optional preview image inside card -->
+        <img class="preview" src="/placeholder.png" alt="Card Thumbnail">
+        <div class="card-content">
+          <div class="card-info">
+            <h2>Detail Tempat</h2>
+            <div class="meta">Price: Rp0 - Rp0</div>
+            <div class="meta">Location: Unknown</div>
+          </div>
+          <a href="#" class="btn" target="_blank" rel="noopener">Details</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div class="bottom_bubble">
+    <p>*search bar dan lain-lain</p>
+  </div>
+</body>
+</html>
+
