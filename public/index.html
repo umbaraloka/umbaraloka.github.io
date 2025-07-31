@@ -18,16 +18,40 @@
     }
     header {
       width: 100%;
-      padding: 2rem 0 1rem;
+      padding: 0.5rem;
       display: flex;
       justify-content: center;
       background-color: #fff;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-    header img {
-      width: 75%;
-      max-width: 600px;
+    .navbar {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      padding: 0.75rem 2rem;
+      border-radius: 999px;
     }
+
+    .nav-link {
+      text-decoration: none;
+      font-weight: 500;
+      color: #555;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    .nav-link:hover {
+      background: #f0f0f0;
+    }
+
+    .nav-link.active {
+      background-color: #1976d2;
+      color: white;
+    }
+
     main {
       flex: 1;
       display: flex;
@@ -164,7 +188,12 @@
 </head>
 <body>
   <header>
-    <a href="/test.html"><img src="/logo-2.png" alt="secondary logo" /></a>
+    <nav class="navbar">
+      <a href="test.html" class="nav-link">Beranda</a>
+      <a href="index.html" class="nav-link active">Destinasi</a>
+      <a href="tertiary.html" class="nav-link">Layanan</a>
+      <a href="about.html" class="nav-link">Tentang Kami</a>
+    </nav>
   </header>
   <main>
     <div class="search-container">
