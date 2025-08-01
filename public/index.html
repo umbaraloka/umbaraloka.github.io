@@ -54,7 +54,6 @@
       flex: 1;
       display: flex;
     }
-
     .left-panel {
       flex: 1;
       overflow: hidden;
@@ -67,14 +66,16 @@
       object-fit: contain;
       display: block;
     }
-
     .right-panel {
+      margin-top: 15vh;
       width: 280px;
       max-width: 80vw;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1rem;
       padding: 1rem;
+      overflow-y: auto;
     }
     .card {
       background-color: #fff;
@@ -142,6 +143,9 @@
       }
       .left-panel {
         margin-top: 1rem;
+      }
+      .right-panel {
+        margin-top: 0;
       }
       .bottom_bubble {
         margin: 1rem auto 0 auto;
@@ -465,22 +469,22 @@
     <circle class="Kalimantan Timur" cx="469.2" cy="125.4" id="IDKI">
     </circle>
     </g></g>
-    <a><image id="sumatra" href="/pin.svg" x="165" y="100" width="36" height="48"/></a>
-    <a><image id="kalimantan" href="/pin.svg" x="400" y="120" width="36" height="48"/></a>
-    <a><image id="sulawesi" href="/pin.svg" x="530" y="125" width="36" height="48"/></a>
-    <a><image id="papua" href="/pin.svg" x="890" y="175" width="36" height="48"/></a>
-    <a><image id="jawa" href="/pin.svg" x="350" y="240" width="36" height="48"/></a>
+    <a href="/sumatra.html"><image href="/pin.svg" x="165" y="100" width="36" height="48"/></a>
+    <a href="/kalimantan.html"><image href="/pin.svg" x="400" y="120" width="36" height="48"/></a>
+    <a href="/sulawesi.html"><image href="/pin.svg" x="530" y="125" width="36" height="48"/></a>
+    <a href="/papua.html"><image href="/pin.svg" x="890" y="175" width="36" height="48"/></a>
+    <a href="/jawa.html"><image href="/pin.svg" x="350" y="240" width="36" height="48"/></a>
     </svg>
     </div>
 
     <!-- Right side: card -->
     <div class="right-panel">
       <div class="card">
-        <img class="preview" src="/placeholder.png" alt="Card Thumbnail">
+        <img class="preview" src="/img/pramuka.webp" alt="Card Thumbnail">
         <div class="card-content">
           <div class="card-info">
-            <h2>Detail Tempat</h2>
-            <div class="meta">Pilih salah satu daerah</div>
+            <h2>Hari Pramuka<br>14 Agustus</h2>
+            <div class="meta">Hari lahirnya Gerakan Pramuka di Indonesia yang bertujuan membentuk karakter, keterampilan, dan semangat kebangsaan pada generasi muda melalui kegiatan kepramukaan.</div>
           </div>
         </div>
       </div>
@@ -489,52 +493,5 @@
   <div class="bottom_bubble">
     <p>&copy; 2025 Umbaraloka</p>
   </div>
-<script>
-  const pinData = {
-    "sumatra": {
-      title: "Sumatra",
-      image: "placeImg/sumatra.png",
-      description: "Pulau besar di barat Indonesia dengan hutan hujan tropis.",
-    },
-    "kalimantan": {
-      title: "Kalimantan",
-      image: "placeImg/kalimantan.png",
-      description: "Bagian Indonesia di pulau Borneo, kaya flora fauna.",
-    },
-    "sulawesi": {
-      title: "Sulawesi",
-      image: "placeImg/sulawesi.png",
-      description: "Pulau dengan bentuk unik dan budaya maritim yang kuat."
-    },
-    "jawa": {
-      title: "Jawa",
-      image: "placeImg/jawa.png",
-      description: "Pulau terpadat di Indonesia, pusat pemerintahan dan ekonomi."
-    },
-    "papua": {
-      title: "Papua",
-      image: "placeImg/papua.png",
-      description: "Pulau paling timur Indonesia, kaya keanekaragaman hayati dan budaya asli."
-    }
-  };
-
-  const titleEl = document.querySelector(".card h2");
-  const imgEl   = document.querySelector(".card img.preview");
-  const descEl  = document.querySelector(".card-info .meta");
-
-  document.querySelectorAll("svg image").forEach(pin => {
-    pin.style.cursor = "pointer";
-    pin.addEventListener("click", e => {
-      e.preventDefault();
-      const id = pin.id;
-      const data = pinData[id];
-      if (!data) return;
-
-      titleEl.textContent = data.title;
-      imgEl.src           = data.image;
-      descEl.textContent  = data.description;
-    });
-  });
-</script>
 </body>
 </html>
