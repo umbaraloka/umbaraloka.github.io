@@ -35,6 +35,9 @@ app.get('/sulawesi', (req, res) => {
 app.get('/papua', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'papua.html'));
 });
+app.get('/jawa', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'jawa.html'));
+});
 
 // Serve pricing.json at /pricing
 app.get('/pricing', (req, res) => {
