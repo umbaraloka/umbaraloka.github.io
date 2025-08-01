@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Pulau Kalimantan</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    main {
+      flex: 1;
+      padding: 1.2rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    img {
+      display: block;
+      margin: 1rem auto 0;
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    ol li {
+      margin-bottom: 10px;
+    }
+    .navbar {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      padding: 0.75rem;
+      border-radius: 999px;
+    }
+    .nav-link {
+      text-decoration: none;
+      font-weight: 500;
+      color: #555;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .nav-link:hover {
+      background: #f0f0f0;
+    }
+    .nav-link.active {
+      background-color: #1976d2;
+      color: white;
+    }
+    .hero {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #1976d2;
+    }
+    .hero p {
+      text-align: justify;
+      font-size: 1rem;
+      color: #444;
+    }
+    .section h2 {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+    .section p {
+      font-size: 1rem;
+      line-height: 1.2;
+      color: #444;
+    }
+    footer {
+      padding: 1rem 0;
+      font-size: 0.9rem;
+      color: #aaa;
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 -1px 4px rgba(0,0,0,0.05);
+    }
+    @media (max-width: 660px) {
+      header {
+        padding: 0.5rem 0;
+        box-shadow: none;
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="/" class="nav-link">Beranda</a>
+      <a href="/destination" class="nav-link">Destinasi</a>
+      <a href="/about" class="nav-link">Tentang Kami</a>
+    </nav>
+  </header>
+  <main>
+    <div class="hero">
+      <h1>Pulau Kalimantan</h1>
+      <img src="/placeImg/kalimantan.png" style="width: 80%;" alt="Pulau Jawa"/>
+      <p>Kalimantan atau juga disebut Borneo oleh dunia internasional, adalah pulau terbesar ketiga di dunia yang 
+        terletak di sebelah utara Pulau Jawa dan di sebelah barat Pulau Sulawesi. Pulau Kalimantan dibagi 
+        menjadi wilayah Indonesia (73%), Malaysia (26%), dan Brunei (1%). Pulau Kalimantan terkenal dengan 
+        julukan "Pulau Seribu Sungai" karena banyaknya sungai yang mengalir di pulau ini. Borneo—yang berasal 
+        dari nama kesultanan Brunei—adalah nama yang dipakai oleh kolonial Inggris dan Belanda untuk menyebut 
+        pulau ini secara keseluruhan, sedangkan Kalimantan adalah nama yang digunakan oleh penduduk bagian timur pulau 
+        yang sekarang termasuk wilayah Indonesia. Wilayah utara pulau ini (Sabah, Brunei, Sarawak) 
+        untuk Malaysia dan Brunei Darussalam. Sementara untuk Indonesia wilayah Utara, adalah provinsi Kalimantan Utara.</p>
+    </div>
+    <div class="section" style="text-align: justify;">
+      <h2>Etimologi</h2>
+      <p>Asal-usul nama Kalimantan tidak begitu jelas. Sebutan <em>kelamantan</em> digunakan di Sarawak untuk 
+        menyebut kelompok penduduk yang mengonsumsi sagu di wilayah utara pulau ini. Menurut Crowfurd, 
+        kata Kalimantan adalah nama sejenis mangga (<em>Mangifera</em>) sehingga pulau Kalimantan adalah pulau mangga. 
+        Namun dia menambahkan bahwa kata itu berbau dongeng dan tidak populer. Mangga lokal yang disebut <em>klemantan</em> 
+        ini sampai sekarang banyak terdapat di perdesaan di daerah Ketapang dan sekitarnya, Kalimantan Barat.</p>
+    </div>
+    <div class="section">
+      <h2>Budaya</h2>
+      <img src="/img/kalimantan_culture.webp" style="width: 70%;" alt="Wayang"/>
+      <ol>
+        <li><strong>Budaya Dayak dari Kalimantan Tengah, Timur, Barat, Utara</strong><br>
+          Suku Dayak adalah suku asli Kalimantan yang terdiri dari banyak sub-suku seperti 
+          Ngaju, Kenyah, Iban, dan Kayan. Mereka dikenal dengan rumah adat yang disebut rumah betang 
+          (panjang), yang ditinggali secara komunal oleh banyak keluarga. Upacara adat penting seperti 
+          Tiwah (upacara kematian) mencerminkan kepercayaan tradisional Kaharingan, yang kini banyak 
+          berasimilasi dengan agama Hindu. Seni ukir, tato tubuh, manik-manik, dan tarian seperti 
+          Tari Giring-Giring menjadi warisan khas suku Dayak. 
+          Pakaian adatnya dihiasi bulu burung enggang, manik, dan kulit kayu.
+        </li>
+        <li><strong>Budaya Banjar dari Kalimantan Selatan</strong><br>
+          Suku Banjar memiliki budaya yang dipengaruhi oleh Islam, Melayu, dan Jawa. 
+          Salah satu kekayaan budayanya adalah rumah adat Bubungan Tinggi yang khas. Dalam kehidupan sosial, 
+          mereka masih menjaga tradisi seperti *baayun anak* (upacara tolak bala bagi bayi) dan 
+          upacara pernikahan adat yang meriah. Seni sastra Banjar terkenal dengan pantun dan syair religius. 
+          Tarian tradisional seperti Tari Baksa Kembang menjadi simbol kelembutan wanita Banjar. 
+          Kuliner seperti soto Banjar dan ketupat kandangan menjadi bagian tak terpisahkan dari identitas budaya ini.
+        </li>
+        <li><strong>Budaya Kutai dari Kalimantan Timur</strong><br>
+          Budaya Kutai banyak dipengaruhi oleh sejarah Kerajaan Kutai, salah satu kerajaan Hindu tertua di Indonesia. 
+          Tradisi dan upacara seperti Erau, sebuah festival budaya dan ritual besar, menjadi ciri khas penting. 
+          Dalam Erau, masyarakat melakukan berbagai atraksi, ritual adat, dan pertunjukan seni seperti 
+          tari Jepen yang menunjukkan perpaduan budaya Kutai dan Melayu. Masyarakat Kutai juga memiliki 
+          pakaian adat dengan warna cerah dan motif khas. Selain itu, alat musik tradisional seperti sampe dan gambus 
+          digunakan dalam berbagai pertunjukan budaya.
+        </li>
+        <li><strong>Budaya Tidung dari Kalimantan Utara</strong><br>
+          Suku Tidung dikenal sebagai masyarakat pesisir yang memiliki adat dan budaya yang bercampur antara 
+          budaya Dayak dan Islam. Dalam kehidupan adat, mereka masih melestarikan tradisi seperti 
+          pernikahan adat Tidung yang melibatkan prosesi *berlilin* dan *berbaki*. Bahasa Tidung dan 
+          musik tradisionalnya menjadi bagian dari identitas mereka, seperti juga Tari Magunatip (tari bambu) yang dinamis. 
+          Rumah panggung yang dibangun di atas air atau rawa juga menjadi ciri khas arsitektur tradisional mereka.
+        </li>
+        <li><strong>Budaya Melayu Kalimantan Barat</strong><br>
+          Masyarakat Melayu di Kalimantan Barat memiliki budaya yang lekat dengan Islam dan adat istiadat Melayu. 
+          Mereka memiliki rumah adat dengan arsitektur kayu yang khas dan biasanya berada di tepi sungai. 
+          Tradisi seperti tepung tawar, kenduri, dan zikir masih dijalankan dalam kehidupan sehari-hari. 
+          Tarian Zapin dan rebana menjadi bagian dari kesenian tradisional Melayu. 
+          Kuliner seperti bubur pedas dan lempok durian menjadi hidangan khas masyarakat Melayu Kalimantan Barat.
+        </li>
+      </ol>
+    </div>
+  </main>
+  <footer>&copy; 2025 Umbaraloka</footer>
+</body>
+</html>
