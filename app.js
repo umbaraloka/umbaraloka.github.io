@@ -11,16 +11,11 @@ app.use(express.json());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Serve static files from a "public" folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Serve index.html for "/" explicitly
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-app.get('/map', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'map.html'));
+app.get('/:page?', (req, res, next) => {
+  let page = req.params.page || 'index';
+  res.sendFile(path.join(__dirname, 'public', `${page}.html`));
 });
 
 // Serve pricing.json at /pricing

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Umbaraloka - Tentang Kami</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      width: 100%;
+      padding: 0.5rem;
+      display: flex;
+      justify-content: center;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .navbar {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      padding: 0.75rem 2rem;
+      border-radius: 999px;
+    }
+    .nav-link {
+      text-decoration: none;
+      font-weight: 500;
+      color: #555;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .nav-link:hover {
+      background: #f0f0f0;
+    }
+    .nav-link.active {
+      background-color: #1976d2;
+      color: white;
+    }
+    main {
+      flex: 1;
+      padding: 1.2rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+    .hero {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .hero h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #1976d2;
+    }
+    .hero p {
+      font-size: 1rem;
+      color: #555;
+    }
+    .section h2 {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+    .section p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #444;
+    }
+    .team {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .member {
+      background: #f9f9f9;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .member img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 0.5rem;
+    }
+    .member h3 {
+      margin: 0.5rem 0 0.25rem;
+      font-size: 1.1rem;
+      color: #333;
+    }
+    .member span {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    footer {
+      padding: 1rem 0;
+      font-size: 0.9rem;
+      color: #aaa;
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 -1px 4px rgba(0,0,0,0.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="/" class="nav-link">Beranda</a>
+      <a href="/destination" class="nav-link">Destinasi</a>
+      <a href="/about" class="nav-link active">Tentang Kami</a>
+    </nav>
+  </header>
+  <main>
+    <div class="hero">
+      <h1>Tentang Umbaraloka</h1>
+      <p>Misi kami adalah memberikan wawasan keramaian real-time untuk membantu Anda merencanakan kunjungan yang sempurna ke objek wisata.</p>
+    </div>
+    <div class="section">
+      <h2>Siapa Kami?</h2>
+      <p>Umbaraloka adalah platform inovatif yang mengumpulkan data keramaian dari berbagai destinasi wisata di Indonesia. Dengan teknologi analitik canggih, kami menyediakan informasi akurat untuk membantu wisatawan menghindari kerumunan dan menikmati pengalaman terbaik.</p>
+    </div>
+    <div class="section">
+      <h2>Tim Kami</h2>
+      <div class="team">
+        <div class="member">
+          <img src="/img/team/alex.jpg" alt="Foto">
+          <h3>P1</h3>
+          <span>CEO &amp; Founder</span>
+        </div>
+        <div class="member">
+          <img src="/img/team/siti.jpg" alt="Foto">
+          <h3>P2</h3>
+          <span>CTO</span>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <h2>Hubungi Kami</h2>
+      <p>Jika Anda memiliki pertanyaan atau ingin bekerja sama, silakan kirim email ke <a href="mailto:info@umbaraloka.com">info@umbaraloka.com</a></p>
+    </div>
+  </main>
+  <footer>&copy; 2025 Umbaraloka</footer>
+</body>
+</html>
