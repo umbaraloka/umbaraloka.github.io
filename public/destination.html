@@ -18,7 +18,6 @@
     }
     header {
       width: 100%;
-      padding: 0.5rem;
       display: flex;
       justify-content: center;
       background-color: #fff;
@@ -30,7 +29,7 @@
       justify-content: center;
       align-items: center;
       background: #fff;
-      padding: 0.75rem 2rem;
+      padding: 0.75rem;
       border-radius: 999px;
     }
 
@@ -100,27 +99,6 @@
       cursor: pointer;
     }
 
-    @media (max-width: 660px) {
-      header {
-        box-shadow: none;
-      }
-      .search-container {
-        margin-top: 0px;
-        padding: 0px;
-        padding-top: 1rem;
-        padding-bottom: 2rem;
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        box-shadow: 0 8px 8px -4px rgba(0, 0, 0, 0.1);
-      }
-
-      .search-container input[type="search"],
-      .search-container select {
-        width: 80%;
-      }
-    }
-
     .cards {
       width: 100%;
       max-width: 1200px;
@@ -183,6 +161,29 @@
       text-align: center;
       background-color: #fff;
       box-shadow: 0 -1px 4px rgba(0,0,0,0.05);
+    }
+
+    @media (max-width: 660px) {
+      header {
+        padding-top: 0.5rem 0;
+        box-shadow: none;
+        font-size: 12px;
+      }
+      .search-container {
+        margin-top: 0px;
+        padding: 0px;
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 8px 8px -4px rgba(0, 0, 0, 0.1);
+      }
+
+      .search-container input[type="search"],
+      .search-container select {
+        width: 80%;
+      }
     }
   </style>
 </head>
