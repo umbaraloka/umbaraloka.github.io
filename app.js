@@ -20,8 +20,8 @@ app.get('/', (req, res) => {
 app.get('/destination', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'destination.html'));
 });
-app.get('/about', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'about.html'));
+app.get('/questions', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'questions.html'));
 });
 app.get('/sumatra', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'sumatra.html'));
