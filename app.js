@@ -13,30 +13,15 @@ const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Serve index.html for "/" explicitly
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-app.get('/destination', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'destination.html'));
-});
-app.get('/questions', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'questions.html'));
-});
-app.get('/sumatra', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'sumatra.html'));
-});
-app.get('/kalimantan', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'kalimantan.html'));
-});
-app.get('/sulawesi', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'sulawesi.html'));
-});
-app.get('/papua', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'papua.html'));
-});
-app.get('/jawa', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'jawa.html'));
+const routes = [
+  'destination', 'questions', 'sumatra', 'kalimantan', 
+  'sulawesi', 'papua', 'jawa',
+];
+
+routes.forEach(route => {
+  app.get(`/${route}`, (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', `${route}.html`));
+  });
 });
 
 // Serve pricing.json at /pricing
